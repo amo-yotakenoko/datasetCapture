@@ -43,6 +43,23 @@ public class camera : MonoBehaviour
 
     IEnumerator CaptureAndSaveRoutine()
     {
+        string[] paths = {
+    "../fandataset/labels/train",
+    "../fandataset/labels/val",
+    "../fandataset/images/train",
+    "../fandataset/images/val"
+};
+        foreach (var path in paths)
+        {
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
+
+
+
         int i = 0;
         while (true)
         {
@@ -139,7 +156,7 @@ public class camera : MonoBehaviour
         }
         print(string.Join(" ", pointList));
         // File.WriteAllText(savePath, string.Join(" ", pointList));
-        return (string.Join(" ", pointList), viewableCount);
+        return (string.Join(" ", pointList) + "\n", viewableCount);
     }
 
 
