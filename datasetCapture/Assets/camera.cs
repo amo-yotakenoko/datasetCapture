@@ -169,7 +169,7 @@ public class camera : MonoBehaviour
 
         // レイがヒットした情報を格納する変数
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * 10, Color.red, 0.1f);
+        Debug.DrawRay(ray.origin, ray.direction * 10, Color.red, 1f);
         // レイキャストを実行
         if (Physics.Raycast(ray, out hit))
         {
@@ -178,7 +178,7 @@ public class camera : MonoBehaviour
 
             // ヒットしたオブジェクトの情報をログに出力
             Debug.Log("Hit Object: " + hitObject.name);
-            Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.blue, 0.1f); // ヒットした位置までのレイを描画
+            Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.blue, 1f); // ヒットした位置までのレイを描画
             print(hitObject.transform.root.name == "fan");
             if (hitObject.transform.root.name == "fan") return true;
         }
