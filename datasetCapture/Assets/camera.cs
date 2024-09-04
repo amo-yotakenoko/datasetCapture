@@ -222,7 +222,7 @@ public class camera : MonoBehaviour
         Destroy(renderTexture);
 
         // Texture2DをPNG形式でファイルに保存
-        byte[] bytes = texture.EncodeToPNG();
+        byte[] bytes = texture.EncodeToJPG();
         return bytes;
 
     }
