@@ -59,11 +59,15 @@ public class camera : MonoBehaviour
         }
 
 
-
+        int count = 0;
         int i = 0;
         while (true)
         {
+            count += 1;
             yield return null;
+            if (count % 100 == 0)
+                this.transform.parent.position = new Vector3(Random.Range(-1.0f, 20.0f), 1.0f, Random.Range(-15.0f, 15.0f));
+
             transform.localPosition = GetRandomPosition();
             cameraToCapture.transform.LookAt(keypoints[0].position);
             Vector3 rootpos = GetRandomPosition() * 2;
@@ -128,7 +132,7 @@ public class camera : MonoBehaviour
         int viewableCount = 0;
 
         List<float> pointList = new List<float>();
-        pointList.Add(0);
+        pointList.Add(1);
         var (center_x, center_y, width, height) = boundbox();
         pointList.Add(center_x);
         pointList.Add(center_y);
