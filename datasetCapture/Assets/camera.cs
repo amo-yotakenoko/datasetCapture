@@ -40,14 +40,16 @@ public class camera : MonoBehaviour
             }
         }
     }
+    // string modelname = "fandataset";
+     string datasetname = "loddataset";
 
     IEnumerator CaptureAndSaveRoutine()
     {
         string[] paths = {
-    "../fandataset/labels/train",
-    "../fandataset/labels/val",
-    "../fandataset/images/train",
-    "../fandataset/images/val"
+    $"../{datasetname}/labels/train",
+    $"../{datasetname}/labels/val",
+    $"../{datasetname}/images/train",
+    $"../{datasetname}/images/val"
 };
         foreach (var path in paths)
         {
@@ -81,11 +83,11 @@ public class camera : MonoBehaviour
             string name = $"{i}";//System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
             (string text, int viewableCount) = keypoint(name);
-            if (viewableCount < 2) continue;
+            // if (viewableCount < 2) continue;
             i += 1;
-            File.WriteAllText($"../fandataset/labels/{type}/{name}.txt", text);
+            File.WriteAllText($"../{datasetname}/labels/{type}/{name}.txt", text);
             byte[] bytes = CaptureAndSave(name);
-            File.WriteAllBytes($"../fandataset/images/{type}/{name}.png", bytes);
+            File.WriteAllBytes($"../{datasetname}/images/{type}/{name}.png", bytes);
             print($"{type}/{name}");
             // break;
 
