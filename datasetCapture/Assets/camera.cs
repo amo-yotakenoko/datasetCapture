@@ -68,7 +68,7 @@ public class camera : MonoBehaviour
             count += 1;
             yield return null;
             if (count % 100 == 0)
-                this.transform.parent.position = new Vector3(Random.Range(-1.0f, 20.0f), 1.0f, Random.Range(-15.0f, 15.0f));
+                this.transform.parent.position = new Vector3(Random.Range(-1.0f, 20.0f)*0.5f, 1.0f, Random.Range(-15.0f, 15.0f)*0.5f);
 
             transform.localPosition = GetRandomPosition();
             cameraToCapture.transform.LookAt(keypoints[0].position);
@@ -145,7 +145,7 @@ public class camera : MonoBehaviour
         {
             Vector3 keypointpos = cameraToCapture.WorldToViewportPoint(keypoint.position);
             print($"{keypoint.gameObject.name},{keypointpos}");
-            if (isviewable(keypoint.position))
+            if (isviewable(keypoint.position)||true)
             {
 
                 pointList.Add(keypointpos.x);
