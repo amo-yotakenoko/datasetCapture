@@ -8,8 +8,8 @@ public class camera : MonoBehaviour
     public Transform[] keypoints;
     public MeshFilter[] meshs;
     Camera cameraToCapture;  // キャプチャするカメラ
-    int imageWidth = 512;   // 保存する画像の幅
-    int imageHeight = 512;  // 保存する画像の高さ
+    int imageWidth = 640;   // 保存する画像の幅
+    int imageHeight = 640;  // 保存する画像の高さ
     // public Vector3[] vertexPositions;
 
     void Start()
@@ -71,7 +71,7 @@ public class camera : MonoBehaviour
                 this.transform.parent.position = new Vector3(Random.Range(-1.0f, 20.0f)*0.5f, 1.0f, Random.Range(-15.0f, 15.0f)*0.5f);
 
             transform.localPosition = GetRandomPosition();
-            cameraToCapture.transform.LookAt(keypoints[0].position);
+            cameraToCapture.transform.LookAt(transform.parent.position);
             Vector3 rootpos = GetRandomPosition() * 2;
             rootpos.y = 1;
             // transform.root.localPosition = rootpos;
